@@ -13,24 +13,28 @@
     background-color: #EEEEEE;
     text-align: center;
   }
+
+  svg.w-5.h-5 {
+    width:30px;
+    height: 30px;
+  }
+
+
 </style>
 @section('title','index.blade.php')
 
 @section('content')
 <table>
   <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>age</th>
-    <th>nationality</th>
+    <th>Data</th>
   </tr>
-  @foreach ($authors as $authors)
+  @foreach ($authors as $author)
   <tr>
-    <td>{{$authors->id}}</td>
-    <td>{{$authors->name}}</td>    
-    <td>{{$authors->age}}</td>
-    <td>{{$authors->nationality}}</td>    
+    <td>
+      {{$author->getDetail()}}
+    </td>  
   </tr>
   @endforeach
 </table>
+{{ $authors->links() }}
 @endsection
