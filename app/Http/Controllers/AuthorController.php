@@ -6,13 +6,16 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use Illuminate\Http\Request;
 use App\Http\Requests\Authorrequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthorController extends Controller
 {
     public function index()
     {
-        $authors = Author::Paginate(4);
-        return view('index', ['authors' => $authors]);
+        $user = Auth::user();
+        $authors = Author::paginate(4);
+        $param = ['authors' => $authors, 'user' =>$user];
+        return view('index', $param);
     }
 
     public function find()
