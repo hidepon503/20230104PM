@@ -2,12 +2,9 @@
 
 namespace Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
-use illuminate\Support\Facades\DB;
-use App\Models\Author;
 
-class AuthorsTableSeeder extends Seeder
+class PeopleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +13,6 @@ class AuthorsTableSeeder extends Seeder
      */
     public function run()
     {
-        Author::factory()->count(3)->create();
+        Person::Factory()->count(10)->create();
     }
 }
